@@ -83,6 +83,9 @@ body {
         width: 90%;
         margin: 20px;
     }
+
+}
+
     /* Добавляем ключевые кадры анимации */
 @keyframes fadeInUp {
     from {
@@ -117,6 +120,4 @@ body {
 .wrapper h1, .wrapper p {
     animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     animation-delay: 0.2s;
-}
-
 }
