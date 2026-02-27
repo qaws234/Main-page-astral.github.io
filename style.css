@@ -1,3 +1,4 @@
+/* Основные сбросы стилей */
 * {
     margin: 0;
     padding: 0;
@@ -16,9 +17,31 @@ body {
     overflow: hidden;
 }
 
+/* --- АНИМАЦИИ --- */
+
+/* Появление снизу с легким масштабированием */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Плавное проявление для кнопок */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /* Стеклянная кнопка в углу */
 .download-btn {
-    position: fixed; /* Фиксируем в углу */
+    position: fixed;
     top: 30px;
     right: 40px;
     display: flex;
@@ -29,7 +52,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     
-    /* Твой стиль Glassmorphism */
+    /* Смарт-эффект Glassmorphism */
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(15px);
@@ -37,6 +60,9 @@ body {
     
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    /* Анимация появления кнопки */
+    animation: fadeIn 1.2s ease forwards;
 }
 
 .download-btn i {
@@ -60,16 +86,25 @@ body {
     text-align: center;
     color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+
+    /* Применяем анимацию появления окна */
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .wrapper h1 {
     font-size: 40px;
     margin-bottom: 15px;
+    /* Анимация текста с задержкой */
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: 0.3s;
 }
 
 .wrapper p {
     font-size: 16px;
     opacity: 0.8;
+    /* Анимация текста с еще большей задержкой */
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: 0.5s;
 }
 
 /* Адаптивность для мобильных устройств */
@@ -83,41 +118,4 @@ body {
         width: 90%;
         margin: 20px;
     }
-
-}
-
-    /* Добавляем ключевые кадры анимации */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-        backdrop-filter: blur(0px); /* Постепенное размытие */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        backdrop-filter: blur(10px);
-    }
-}
-
-/* Обновленный стиль для .wrapper */
-.wrapper {
-    width: 500px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
-
-    /* Применяем анимацию */
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-/* Добавим небольшую задержку для текста внутри, чтобы было еще красивее */
-.wrapper h1, .wrapper p {
-    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    animation-delay: 0.2s;
 }
